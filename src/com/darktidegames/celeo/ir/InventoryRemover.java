@@ -16,9 +16,13 @@ import org.bukkit.block.Block;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.ItemFrame;
+import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Pig;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.CreatureSpawnEvent;
+import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 import org.bukkit.event.hanging.HangingBreakByEntityEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -225,6 +229,21 @@ public class InventoryRemover extends JavaPlugin implements Listener
 			return;
 		Location from = event.getFrom();
 		endLogger.info(String.format("%s traveled to the end from world %s at %d, %d, %d", player.getName(), from.getWorld().getName(), from.getBlockX(), from.getBlockY(), from.getBlockZ()));
+	}
+
+	/**
+	 * Disable pigs from spawning from spawners
+	 * 
+	 * @param event
+	 *            CreatureSpawnEvent
+	 */
+	@EventHandler
+	public void onCreatureSpawn(CreatureSpawnEvent event)
+	{
+		LivingEntity entity = event.getEntity();
+		if (entity instanceof Pig)
+			if (event.getSpawnReason().equals(SpawnReason.SPAWNER))
+				event.setCancelled(true);
 	}
 
 }
