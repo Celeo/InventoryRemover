@@ -11,6 +11,7 @@ To ensure that the config file will be loaded into memory correctly, you may wis
 
 Example config.yml:
 
+<pre>
 bannedItems:
   inventory:
   - 1
@@ -21,3 +22,4 @@ bannedItems:
   - 30
   - 31
   - 50
+</pre>
