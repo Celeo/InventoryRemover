@@ -210,7 +210,13 @@ public class InventoryRemover extends JavaPlugin implements Listener
 			if (bannedInventoryItems.contains(Integer.valueOf(i.getTypeId())))
 				i.setTypeId(0);
 		}
-		inventory.setContents(ret);
+		// TODO: Check for IllegalArgumentException being thrown
+		try
+		{
+			inventory.setContents(ret);
+		}
+		catch (Exception e)
+		{}
 	}
 
 	/**
