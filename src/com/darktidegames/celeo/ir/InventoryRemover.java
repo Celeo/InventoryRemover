@@ -228,7 +228,7 @@ public class InventoryRemover extends JavaPlugin implements Listener
 		if (!event.getTo().getWorld().getEnvironment().equals(Environment.THE_END))
 			return;
 		Location from = event.getFrom();
-		endLogger.info(String.format("2 %s traveled to the end from world %s at %d, %d, %d", player.getName(), from.getWorld().getName(), from.getBlockX(), from.getBlockY(), from.getBlockZ()));
+		endLogger.info(String.format("%s traveled to the end from world %s at %d, %d, %d", player.getName(), from.getWorld().getName(), from.getBlockX(), from.getBlockY(), from.getBlockZ()));
 	}
 
 	/**
