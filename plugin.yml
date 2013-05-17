@@ -1,5 +1,5 @@
 name: InventoryRemover
-version: 0.1.0.0
+version: 0.1.0.1
 author: Celeo
 description: Banned items are removed from player and chest inventories
 main: com.darktidegames.celeo.ir.InventoryRemover

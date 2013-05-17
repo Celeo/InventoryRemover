@@ -27,7 +27,7 @@ import org.bukkit.event.hanging.HangingBreakByEntityEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerTeleportEvent;
+import org.bukkit.event.player.PlayerPortalEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -217,10 +217,10 @@ public class InventoryRemover extends JavaPlugin implements Listener
 	 * Track players traveling to any end worlds
 	 * 
 	 * @param event
-	 *            PlayerTeleportEvent
+	 *            PlayerPortalEvent
 	 */
 	@EventHandler
-	public void onPlayerGoToEnd(PlayerTeleportEvent event)
+	public void onPlayerPortal(PlayerPortalEvent event)
 	{
 		Player player = event.getPlayer();
 		if (event.getFrom().getWorld().getEnvironment().equals(Environment.THE_END))
@@ -228,7 +228,7 @@ public class InventoryRemover extends JavaPlugin implements Listener
 		if (!event.getTo().getWorld().getEnvironment().equals(Environment.THE_END))
 			return;
 		Location from = event.getFrom();
-		endLogger.info(String.format("%s traveled to the end from world %s at %d, %d, %d", player.getName(), from.getWorld().getName(), from.getBlockX(), from.getBlockY(), from.getBlockZ()));
+		endLogger.info(String.format("2 %s traveled to the end from world %s at %d, %d, %d", player.getName(), from.getWorld().getName(), from.getBlockX(), from.getBlockY(), from.getBlockZ()));
 	}
 
 	/**
